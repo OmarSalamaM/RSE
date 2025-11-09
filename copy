@@ -1,12 +1,7 @@
-<?xml version="1.0"?>
-<robot name="my_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+<!-- Send fake joint values-->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="false"/>
+  </node>
 
-  <!-- other xacro includes -->
-  <xacro:include filename="$(find my_robot)/urdf/my_robot.gazebo"/>
-
-  <!-- robot links and joints -->
-  <xacro:include filename="$(find my_robot)/urdf/chassis.xacro"/>
-  <xacro:include filename="$(find my_robot)/urdf/wheels.xacro"/>
-  <xacro:include filename="$(find my_robot)/urdf/sensors.xacro"/>
-
-</robot>
+  <!-- Send robot states to tf -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>

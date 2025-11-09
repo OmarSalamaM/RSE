@@ -1,7 +1,19 @@
-<!-- Send fake joint values-->
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-    <param name="use_gui" value="false"/>
-  </node>
+ubuntu@ip-172-31-31-160:~/project2/catkinws$ roslaunch my_robot world.launch
+... logging to /home/ubuntu/.ros/log/952dd14e-bd9f-11f0-a337-1562fe9c3592/roslaunch-ip-172-31-31-160-8014.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
 
-  <!-- Send robot states to tf -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+xacro: in-order processing became default in ROS Melodic. You can drop the option.
+XML parsing error: junk after document element: line 27, column 2
+when processing file: /home/ubuntu/project2/catkinws/src/my_robot/urdf/my_robot.gazebo
+included from: /home/ubuntu/project2/catkinws/src/my_robot/urdf/my_robot.xacro
+
+Check that:
+ - Your XML is well-formed
+ - You have the xacro xmlns declaration: xmlns:xacro="http://www.ros.org/wiki/xacro"
+RLException: while processing /home/ubuntu/project2/catkinws/src/my_robot/launch/robot_description.launch:
+Invalid <param> tag: Cannot load command parameter [robot_description]: command [['/opt/ros/noetic/lib/xacro/xacro', '--inorder', '/home/ubuntu/project2/catkinws/src/my_robot/urdf/my_robot.xacro']] returned with code [2]. 
+
+Param xml is <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find my_robot)/urdf/my_robot.xacro'"/>
+The traceback for the exception was written to the log file

@@ -1,8 +1,47 @@
- <!-- Find my robot Description-->
-             <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find my_robot)/urdf/my_robot.xacro'"/>
+<!-- Left Wheel -->
+<link name="left_wheel">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+    <mass value="5"/>
+    <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+  </inertial>
 
-             <!-- Spawn My Robot -->
-             <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
-                   args="-urdf -param robot_description -model my_robot 
-                         -x $(arg x) -y $(arg y) -z $(arg z)
-                         -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+    <geometry>
+      <cylinder radius="0.1" length="0.05"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+    <geometry>
+      <cylinder radius="0.1" length="0.05"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- Right Wheel -->
+<link name="right_wheel">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+    <mass value="5"/>
+    <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+  </inertial>
+
+  <visual>
+    <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+    <geometry>
+      <cylinder radius="0.1" length="0.05"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+    <geometry>
+      <cylinder radius="0.1" length="0.05"/>
+    </geometry>
+  </collision>
+</link>
